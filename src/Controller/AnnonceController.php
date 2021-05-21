@@ -19,7 +19,7 @@ class AnnonceController extends AbstractController
     /**
      * @var EntityManagerInterface $em
      */
-     private $em;
+     private EntityManagerInterface $em;
 
     /**
      * AnnonceController constructor.
@@ -30,7 +30,6 @@ class AnnonceController extends AbstractController
     {
         $this->repository = $repository;
         $this->em = $em;
-
     }
 
     /**
