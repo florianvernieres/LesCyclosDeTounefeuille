@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Annonce;
 use App\Entity\Bureau;
+use App\Entity\Membre;
 use App\Entity\Projet;
 use App\Entity\Sortie;
 use App\Entity\User;
@@ -37,6 +38,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Projets', 'fas fa-tasks', Projet::class);
         yield MenuItem::linkToCrud('Sorties', 'fas fa-biking', Sortie::class);
         yield MenuItem::linkToCrud('utilisateurs', 'fas fa-user', User::class);
-
+        yield MenuItem::linkToCrud('membres du club', 'fas fa-users', Membre::class);
     }
 }

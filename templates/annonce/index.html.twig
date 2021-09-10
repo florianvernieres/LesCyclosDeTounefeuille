@@ -9,7 +9,8 @@
     <div class="row flex">
         {% for annonce in annonces %}
             <div class="col-3">
-                <div class="card">
+                <div class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url({{ vich_uploader_asset(annonce, 'imageFile') }})">
+                    <img src="{{ annonce.file }}" alt="..." class="img-fluid d-md-none invisible">
                     <h5 class="card-title">
                         <a href="{{ path('annonce.show', {id: annonce.id}) }}">{{ annonce.titre}}</a>
                     </h5>

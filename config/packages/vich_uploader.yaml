@@ -1,0 +1,26 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        annonce_image:
+            uri_prefix: '%annonce_image%'
+            upload_destination: '%kernel.project_dir%/public%annonce_image%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer #rend le nom du fichier unique
+            delete_on_update: false
+            delete_on_remove: false
+
+        membre_image:
+            uri_prefix: '%membre_image%'
+            upload_destination: '%kernel.project_dir%/public%membre_image%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer #rend le nom du fichier unique
+            delete_on_update: false
+            delete_on_remove: false
+
+        bureau_image:
+            uri_prefix: '%bureau_image%'
+            upload_destination: '%kernel.project_dir%/public%bureau_image%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer #rend le nom du fichier unique
+            delete_on_update: false
+            delete_on_remove: false
+
+

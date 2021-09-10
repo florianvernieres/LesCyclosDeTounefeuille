@@ -2,15 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\BureauRepository;
+use App\Repository\MembreRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 /**
- * @ORM\Entity(repositoryClass=BureauRepository::class)
+ * @ORM\Entity(repositoryClass=MembreRepository::class)
  * @Vich\Uploadable
  */
-class Bureau
+class Membre
 {
     /**
      * @ORM\Id
@@ -20,7 +21,7 @@ class Bureau
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $nom;
 
@@ -30,9 +31,9 @@ class Bureau
     private $prenom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $fonction;
+    private $age;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -40,7 +41,7 @@ class Bureau
     private $file;
 
     /**
-     * @Vich\UploadableField(mapping="bureau_image", fileNameProperty="file")
+     * @Vich\UploadableField(mapping="membre_image", fileNameProperty="file")
      * @var File
      */
     private $imageFile;
@@ -55,7 +56,7 @@ class Bureau
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(?string $nom): self
     {
         $this->nom = $nom;
 
@@ -74,14 +75,14 @@ class Bureau
         return $this;
     }
 
-    public function getFonction(): ?string
+    public function getAge(): ?int
     {
-        return $this->fonction;
+        return $this->age;
     }
 
-    public function setFonction(string $fonction): self
+    public function setAge(?int $age): self
     {
-        $this->fonction = $fonction;
+        $this->age = $age;
 
         return $this;
     }

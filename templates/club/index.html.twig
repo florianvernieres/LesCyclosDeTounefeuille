@@ -9,10 +9,11 @@
     <div class="row flex">
         {% for membre in membres %}
             <div class="col-3">
-                <div class="card">
+                <div class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url({{ vich_uploader_asset(membre, 'imageFile') }})">
                     <h5 class="card-title">
                     </h5>
                     <p class="card-text">
+                        <img src="{{ membre.file }}" alt="..." class="img-fluid d-md-none invisible">
                         {{ membre.nom }}
                         {{ membre.prenom }}
                         {{ membre.fonction }}

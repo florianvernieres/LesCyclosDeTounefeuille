@@ -5,9 +5,12 @@ namespace App\Entity;
 use App\Repository\AnnonceRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=AnnonceRepository::class)
+ * @Vich\Uploadable
  */
 class Annonce
 {
@@ -42,6 +45,17 @@ class Annonce
      * @ORM\Column(type="text")
      */
     private ?string $contact;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $file;
+
+    /**
+     * @Vich\UploadableField(mapping="annonce_image", fileNameProperty="file")
+     * @var File
+     */
+    private $imageFile;
 
     public function getId(): ?int
     {
@@ -111,5 +125,28 @@ class Annonce
         $this->contact = $contact;
 
         return $this;
+    }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(string $file): self
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+
+    public function setImageFile(File $file)
+    {
+        $this->imageFile = $file;
     }
 }
